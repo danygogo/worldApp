@@ -1,1 +1,49 @@
-<p>by-country works!</p>
+<h2>Por país</h2>
+
+<hr>
+
+<div class ="row">
+    <div class="col">
+        <form (ngSubmit)= "search()" autocomplete = "off">
+            <input type="text"
+                name= "term"
+                class = "form-control"
+                placeholder="Buscar país"
+                [(ngModel)] = "term">
+        </form>
+    </div>
+</div>
+<hr>
+<div class= "alert-danger">
+    No hay coincidencias con la palabra buscada
+</div>
+
+<div class="row">
+    <div class = "col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Bandera</th>
+                    <th>País</th>
+                    <th>Poblacion</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>bandera</td>
+                    <td>nombre</td>
+                    <td>123</td>
+                    <td>
+                        <a href="/pais/cri">Ver más...</a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
