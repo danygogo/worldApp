@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
 import { Observable } from 'rxjs';
+import { CountryResponse } from '../interfaces/country.interface';
 
 
 @Injectable({
@@ -13,10 +14,10 @@ export class CountryService {
   constructor(private http: HttpClient) { }
 
 
-  searchCountry(term: string):Observable<any>{
+  searchCountry(term: string):Observable<CountryResponse[]>{ //El tipo se saca de la interface
 
     const url = `${this.apiURL}/name/${term}`
-    return this.http.get(this.apiURL)
+    return this.http.get<CountryResponse[]>(url)
       
   }
 

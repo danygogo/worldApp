@@ -7,18 +7,20 @@ import { CountryService } from '../../services/country.service';
   styleUrls: ['./by-country.component.css']
 })
 export class ByCountryComponent {
-  term: string = ""
+  term: string = "";
+  errorFound: boolean = false;
 
   constructor(private countryService: CountryService) { }
 
   search(){
+    this.errorFound = false;
     console.log(this.term);
-    var result = this.countryService.searchCountry(this.term)
-    .subscribe(resp => {
-      console.log(resp)
+    this.countryService.searchCountry(this.term)
+    .subscribe((resp) => {
+      console.log(resp);
+    }, (err) =>{
+      this.errorFound = true;
     })
-    
   }
-
 
 }

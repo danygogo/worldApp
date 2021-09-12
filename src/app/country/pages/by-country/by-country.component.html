@@ -14,11 +14,11 @@
     </div>
 </div>
 <hr>
-<div class= "alert-danger">
-    No hay coincidencias con la palabra buscada
+<div class= "alert-danger" *ngIf = "errorFound">
+    No hay coincidencias con <strong>{{term}}</strong>
 </div>
 
-<div class="row">
+<div class="row" *ngIf = "!errorFound">
     <div class = "col">
         <table class="table table-hover">
             <thead>
