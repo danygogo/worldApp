@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core"
+import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router"
 import { ByCountryComponent } from './country/pages/by-country/by-country.component';
 import { ByRegionComponent } from './country/pages/by-region/by-region.component';
