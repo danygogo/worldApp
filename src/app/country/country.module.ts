@@ -5,14 +5,13 @@ import { ByCountryComponent } from './pages/by-country/by-country.component';
 import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { SeeCountryComponent } from './pages/see-country/see-country.component';
 
-
-
 @NgModule({
   declarations: [
     ByCapitalComponent,
     ByCountryComponent,
     ByRegionComponent,
-    SeeCountryComponent
+    SeeCountryComponent,
+
   ],
   exports: [
     ByCapitalComponent,
