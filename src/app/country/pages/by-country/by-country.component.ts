@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CountryResponse } from '../../interfaces/country.interface';
 import { CountryService } from '../../services/country.service';
 
 @Component({
@@ -9,17 +10,23 @@ import { CountryService } from '../../services/country.service';
 export class ByCountryComponent {
   term: string = "";
   errorFound: boolean = false;
+  countries: CountryResponse[] = [];
+  elements: number = 0;
+
 
   constructor(private countryService: CountryService) { }
 
   search(){
     this.errorFound = false;
     console.log(this.term);
-    this.countryService.searchCountry(this.term)
+    this.countryService.searchCountry(this.term) //devuelve el arreglo
     .subscribe((resp) => {
-      console.log(resp);
+      this.countries = resp;
+      this.elements = this.countries.length
+      console.log("la cantidad de elementos es: " + typeof(this.elements))
     }, (err) =>{
       this.errorFound = true;
+      this.countries = [];
     })
   }
 
