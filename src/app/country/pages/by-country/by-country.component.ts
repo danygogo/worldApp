@@ -12,6 +12,7 @@ export class ByCountryComponent {
   errorFound: boolean = false;
   countries: CountryResponse[] = [];
   elements: number = 0;
+  
 
 
   constructor(private countryService: CountryService) { }
@@ -22,8 +23,7 @@ export class ByCountryComponent {
     this.countryService.searchCountry(this.term) //devuelve el arreglo
     .subscribe((resp) => {
       this.countries = resp;
-      this.elements = this.countries.length
-      console.log("la cantidad de elementos es: " + typeof(this.elements))
+      this.elements = this.countries.length;
     }, (err) =>{
       this.errorFound = true;
       this.countries = [];
