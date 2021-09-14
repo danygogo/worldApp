@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CapitalService } from '../../services/capital.service';
+import { CountryService } from '../../services/country.service';
 import { CapitalResponse } from '../../interfaces/capital.interface';
 
 @Component({
@@ -13,19 +13,17 @@ export class ByCapitalComponent implements OnInit {
   countries: CapitalResponse[] = [];
   elements: number = 0;
 
-  constructor(private capitalService: CapitalService) { }
+  constructor(private capitalService: CountryService) { }
 
   ngOnInit(): void {
   }
 
   search(term : string){
-    console.log("se encuentra en by capital")
     this.errorFound = false;
     this.term = term;
     console.log(this.term);
     this.capitalService.searchCapital(this.term)
     .subscribe((resp) => {
-      console.log("estoy en el observable by-capital")
       this.countries = resp;
       this.elements = this.countries.length;
     }, (err) =>{
