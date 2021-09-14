@@ -1,1 +1,28 @@
-<p>by-capital works!</p>
+
+<h2>By Capital</h2>
+
+<hr>
+
+<div class ="row">
+    <div class="col">
+        <app-input 
+        (onEnter)= "search($event)"
+        (onDebounce) = "suggestion($event)"
+        placeholder = "Search by Capital">
+
+        </app-input>
+
+    </div>
+</div>
+<hr>
+<div class= "alert-danger" *ngIf = "errorFound">
+    No hay coincidencias con <strong>{{term}}</strong>
+</div>
+
+<div class="row" >
+    <div class = "col">
+        <app-country-table [data] = "countries"></app-country-table>
+        
+    </div>
+
+</div>

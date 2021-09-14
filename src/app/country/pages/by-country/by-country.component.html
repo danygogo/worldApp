@@ -1,4 +1,4 @@
-<h2>Por país</h2>
+<h2>By Country</h2>
 
 <hr>
 
@@ -6,7 +6,8 @@
     <div class="col">
         <app-input 
         (onEnter)= "search($event)"
-        (onDebounce) = suggestion($event)>
+        placeholder = "Search by Country"
+        (onDebounce) = "suggestion($event)">
 
         </app-input>
 

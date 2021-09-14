@@ -10,7 +10,7 @@ export class CountryTableComponent implements OnInit {
 
   @Input("data") countries: CountryResponse[] = []
 
-  constructor() { }
+  constructor() { console.log("estoy en el constructor de country table") }
 
   ngOnInit(): void {
   }

@@ -2,7 +2,7 @@
     <input type="text"
         name= "term"
         class = "form-control"
-        placeholder="Search a country"
         [(ngModel)] = "term"
-        (input) = "keyboardActive()">
+        (input) = "keyboardActive()"
+        [placeholder]= "placeholder">
 </form>
