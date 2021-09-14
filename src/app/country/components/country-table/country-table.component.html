@@ -11,8 +11,20 @@
     </thead>
 
   
-    <tbody >
+    <tbody *ngIf = "countries">
         <tr *ngFor= "let result of countries; let i = index">
+            <td>{{i + 1}}</td>
+            <td><img class = "small-flag" src = {{result.flag}}></td>
+            <td>{{result.name}}, {{result.capital}} </td>
+            <td>{{result.population |number}}</td>
+            <td>
+                <a [routerLink]="['/country', result.alpha2Code]">Ver más...</a>
+            </td>
+        </tr>
+    </tbody>
+
+    <tbody *ngIf = "countries2">
+        <tr *ngFor= "let result of countries2; let i = index">
             <td>{{i + 1}}</td>
             <td><img class = "small-flag" src = {{result.flag}}></td>
             <td>{{result.name}}, {{result.capital}} </td>

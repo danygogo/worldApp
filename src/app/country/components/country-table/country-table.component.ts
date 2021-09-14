@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CountryResponse } from '../../interfaces/country.interface';
+import { RegionResponse } from '../../interfaces/region.interface';
 
 @Component({
   selector: 'app-country-table',
@@ -9,8 +10,9 @@ import { CountryResponse } from '../../interfaces/country.interface';
 export class CountryTableComponent implements OnInit {
 
   @Input("data") countries: CountryResponse[] = []
+  @Input("data2") countries2: RegionResponse[] = []
 
-  constructor() { console.log("estoy en el constructor de country table") }
+  constructor() {}
 
   ngOnInit(): void {
   }
