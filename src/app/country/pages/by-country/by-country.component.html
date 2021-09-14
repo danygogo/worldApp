@@ -4,7 +4,11 @@
 
 <div class ="row">
     <div class="col">
-        <app-input></app-input>
+        <app-input 
+        (onEnter)= "search($event)"
+        (onDebounce) = suggestion($event)>
+
+        </app-input>
 
     </div>
 </div>
