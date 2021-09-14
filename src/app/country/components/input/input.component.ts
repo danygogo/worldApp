@@ -34,7 +34,6 @@ export class InputComponent implements OnInit {
   }
 
   search(){
-    console.log("se ejectuta el imput")
     this.onEnter.emit(this.term)
   }
 
