@@ -1,1 +1,45 @@
-<p>see-country works!</p>
+<div *ngIf = "!country; else divPais"
+class = "alert alert-info">Loading...</div>
+
+<ng-template #divPais>
+    <div class = "row">
+        <div class = "col-12">
+            <h1>Country: <small>{{country.name}}</small></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class = "col-9">
+            <h3>Information</h3>
+            <ul class = "list-group">
+                <li class = "list-group-item"><strong>Region: </strong>{{country.region}}</li>
+                <li class = "list-group-item"><strong>Subregion: </strong>{{country.subregion}}</li>
+                <li class = "list-group-item"><strong>Demonym: </strong>{{country.demonym}}</li>
+                <li class = "list-group-item" *ngFor= "let coins of currency; let i =index"><strong>Currency: </strong>{{coins.name}} - {{coins.symbol}}</li>
+                <li class = "list-group-item"><strong>Population: </strong>{{country.population | number}}</li>
+            </ul>
+        </div>
+
+        <div class="col-3">
+            <h3>Flag</h3>
+            <img [src]="country.flag" class= "img-thumbnail" >
+        </div>
+        <h3>Translations</h3>
+        <div class= "row">
+            <div class= "col">
+                <span class="badge bg-primary mr-1">de: {{country.translations.de}}</span>
+                <span class="badge bg-primary mr-1">fr: {{country.translations.fr}}</span>
+                <span class="badge bg-primary mr-1">es: {{country.translations.es}}</span>
+                <span class="badge bg-primary mr-1">ja: {{country.translations.ja}}</span>
+                <span class="badge bg-primary mr-1">it: {{country.translations.it}}</span>
+                <span class="badge bg-primary mr-1">br: {{country.translations.br}}</span>
+                <span class="badge bg-primary mr-1">pt: {{country.translations.pt}}</span>
+                <span class="badge bg-primary mr-1">nl: {{country.translations.nl}}</span>
+                <span class="badge bg-primary mr-1">hr: {{country.translations.hr}}</span>
+            </div>
+        </div>
+
+    </div>
+    
+</ng-template>

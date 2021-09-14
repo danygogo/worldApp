@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CountryService } from '../../services/country.service';
+import { switchMap, tap } from 'rxjs/operators';
+import { CountryResponse } from '../../interfaces/country.interface';
+
 
 @Component({
   selector: 'app-see-country',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeeCountryComponent implements OnInit {
 
-  constructor() { }
+  country!: CountryResponse
+  currency: any[] = []
+
+
+  constructor(private activatedRoute: ActivatedRoute,
+    private countryService: CountryService) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params
+    .pipe(
+      switchMap((params) => this.countryService.getCountryByAlpha(params.id)),
+      tap(console.log)
+    )
+    .subscribe(resp =>{
+      this.country = resp
+      this.currency = this.country.currencies
+    })
+
   }
 
 }

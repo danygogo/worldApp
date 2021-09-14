@@ -21,5 +21,12 @@ export class CountryService {
       
   }
 
+  getCountryByAlpha(id: string):Observable<CountryResponse>{ //El tipo se saca de la interface
+
+    const url = `${this.apiURL}/alpha/${id}`
+    return this.http.get<CountryResponse>(url)
+      
+  }
+
 }
 
