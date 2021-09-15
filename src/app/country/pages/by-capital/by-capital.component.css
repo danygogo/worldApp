@@ -1,0 +1,13 @@
+.alert-danger{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li{
+    cursor: pointer;
+    
+}
+
+ul{
+    list-style: none;
+}

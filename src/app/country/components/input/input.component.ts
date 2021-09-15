@@ -34,7 +34,7 @@ export class InputComponent implements OnInit {
   }
 
   search(){
-    this.onEnter.emit(this.term)
+    this.onEnter.emit(this.term.trim())
   }
 
   keyboardActive(){

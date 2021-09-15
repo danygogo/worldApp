@@ -9,11 +9,18 @@
             (onEnter)= "search($event)"
             (onDebounce) = "suggestion($event)"
             >
-
             </app-input>
 
         </div>
     </div>
+
+    <ul class="list-group">
+        <li class="list-grop-item list-group-item-action"
+        *ngFor = "let country of suggested">
+            <a class = "nav-link" [routerLink]= "['/country', country.alpha2Code]">{{country.capital}}</a>
+        </li>
+    </ul>
+
     <hr>
     <div class= "alert-danger" *ngIf = "errorFound">
         There are no matches with <strong>{{term}}</strong>

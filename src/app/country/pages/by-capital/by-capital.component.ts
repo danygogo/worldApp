@@ -11,6 +11,7 @@ export class ByCapitalComponent implements OnInit {
   term: string = "";
   errorFound: boolean = false;
   countries: CapitalResponse[] = [];
+  suggested: CapitalResponse[] = [];
   elements: number = 0;
 
   constructor(private capitalService: CountryService) { }
@@ -33,7 +34,12 @@ export class ByCapitalComponent implements OnInit {
 
   suggestion(term: string){
     this.errorFound = false;
-    //TO DO
+    this.capitalService.searchCapital(term)
+    .subscribe(resp => {
+      this.suggested = resp.splice(0,5)
+    },
+    (err) => this.suggested = []
+  )
   }
 
 }
