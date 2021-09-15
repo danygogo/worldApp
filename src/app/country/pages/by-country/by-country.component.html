@@ -13,6 +13,14 @@
 
         </div>
     </div>
+
+    <ul class="list-group">
+        <li class="list-grop-item list-group-item-action"
+        *ngFor = "let country of suggestedCountries">
+            <a class = "nav-link" [routerLink]= "['/country', country.alpha2Code]">{{country.name}}</a>
+        </li>
+    </ul>
+
     <hr>
     <div class= "alert-danger" *ngIf = "errorFound">
         There are no matches with  <strong>{{term}}</strong>
@@ -20,9 +28,9 @@
 
     <div class="row" >
         <div class = "col">
-            <app-country-table [data] = "countries"></app-country-table>
-            
+            <app-country-table [data] = "countries"></app-country-table> 
         </div>
-
     </div>
+
+
 </div>

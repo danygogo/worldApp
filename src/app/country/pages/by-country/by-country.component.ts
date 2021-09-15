@@ -11,6 +11,7 @@ export class ByCountryComponent {
   term: string = "";
   errorFound: boolean = false;
   countries: CountryResponse[] = [];
+  suggestedCountries: CountryResponse[] = [];
   elements: number = 0;
   
 
@@ -33,7 +34,13 @@ export class ByCountryComponent {
 
   suggestion(term: string){
     this.errorFound = false;
-    //TO DO
+    
+    this.countryService.searchCountry(term)
+      .subscribe(resp => {
+        this.suggestedCountries = resp.splice(0,5)
+      },
+      (err) => this.suggestedCountries = []
+    )
   }
 
 }
