@@ -20,11 +20,11 @@ export class ByCountryComponent {
   search(term : string){
     this.errorFound = false;
     this.term = term;
-    console.log(this.term);
     this.countryService.searchCountry(this.term)
     .subscribe((resp) => {
       this.countries = resp;
       this.elements = this.countries.length;
+      console.log(this.countries)
     }, (err) =>{
       this.errorFound = true;
       this.countries = [];

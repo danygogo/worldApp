@@ -21,7 +21,6 @@ export class ByCapitalComponent implements OnInit {
   search(term : string){
     this.errorFound = false;
     this.term = term;
-    console.log(this.term);
     this.capitalService.searchCapital(this.term)
     .subscribe((resp) => {
       this.countries = resp;

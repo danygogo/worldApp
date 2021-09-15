@@ -1,28 +1,32 @@
+<div class="animate__animated animate__bounceIn">
+    <h2>By Capital:</h2>
 
-<h2>By Capital</h2>
+    <hr>
 
-<hr>
+    <div class ="row">
+        <div class="col">
+            <app-input 
+            (onEnter)= "search($event)"
+            (onDebounce) = "suggestion($event)"
+            >
 
-<div class ="row">
-    <div class="col">
-        <app-input 
-        (onEnter)= "search($event)"
-        (onDebounce) = "suggestion($event)"
-        placeholder = "Search by Capital">
+            </app-input>
 
-        </app-input>
-
+        </div>
     </div>
-</div>
-<hr>
-<div class= "alert-danger" *ngIf = "errorFound">
-    No hay coincidencias con <strong>{{term}}</strong>
-</div>
-
-<div class="row" >
-    <div class = "col">
-        <app-country-table [data] = "countries"></app-country-table>
-        
+    <hr>
+    <div class= "alert-danger" *ngIf = "errorFound">
+        There are no matches with <strong>{{term}}</strong>
     </div>
 
+    <div class="row">
+        <div class = "col">
+            <app-country-table [data] = "countries"></app-country-table>
+            
+        </div>
+
+    </div>
+
 </div>
+
+

@@ -18,8 +18,8 @@ export class ByRegionComponent {
   constructor(private countryService: CountryService) { }
 
   activateRegion(region: string){
+    if(region === this.activeRegion){return;}//this avoids to reload activeRegion if the user uses the same button
     this.activeRegion = region;
-    //TODO: LLAMAR AL SERVICIO
     this.countryService.searchRegion(this.activeRegion)
     .subscribe((resp) => {
       this.countries = resp;

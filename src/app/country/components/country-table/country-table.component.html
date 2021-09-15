@@ -2,35 +2,35 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Bandera</th>
-            <th>Pais, Capital</th>
-            <th>Poblacion</th>
+            <th>Flag</th>
+            <th>Country, Capital</th>
+            <th>Population</th>
             <th></th>
 
         </tr>
     </thead>
 
   
-    <tbody *ngIf = "countries">
-        <tr *ngFor= "let result of countries; let i = index">
+    <tbody *ngIf = "countries" >
+        <tr *ngFor= "let result of countries; let i = index" >
             <td>{{i + 1}}</td>
             <td><img class = "small-flag" src = {{result.flag}}></td>
             <td>{{result.name}}, {{result.capital}} </td>
-            <td>{{result.population |number}}</td>
+            <td>{{result.population | number}}</td>
             <td>
-                <a [routerLink]="['/country', result.alpha2Code]">Ver más...</a>
+                <a [routerLink]="['/country', result.alpha2Code]">See more...</a>
             </td>
         </tr>
     </tbody>
 
-    <tbody *ngIf = "countries2">
+    <tbody *ngIf = "countries2" >
         <tr *ngFor= "let result of countries2; let i = index">
             <td>{{i + 1}}</td>
             <td><img class = "small-flag" src = {{result.flag}}></td>
             <td>{{result.name}}, {{result.capital}} </td>
             <td>{{result.population |number}}</td>
             <td>
-                <a [routerLink]="['/country', result.alpha2Code]">Ver más...</a>
+                <a [routerLink]="['/country', result.alpha2Code]">See more...</a>
             </td>
         </tr>
     </tbody>
